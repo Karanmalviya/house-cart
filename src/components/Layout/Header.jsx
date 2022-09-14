@@ -1,7 +1,10 @@
-
-import { Link } from "react-router-dom";
+import { getAuth } from "firebase/auth";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function Header() {
+    const navigate = useNavigate();
+    const auth = getAuth();
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-light">
@@ -32,10 +35,38 @@ export default function Header() {
                 </Link>
               </li>
 
-              <li className="nav-item">
-                <Link className="nav-link" to="/profile">
-                  Profile
-                </Link>
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Account
+                </a>
+                <ul className="dropdown-menu">
+                  <li>
+                    <Link className="dropdown-item" to="/profile">
+                      Profile
+                    </Link>
+                  </li>
+
+                  <li>
+                    <hr className="dropdown-divider" />
+                  </li>
+                  <li>
+                    <Link
+                      className="dropdown-item"
+                      to="/"
+                      onClick={() => {
+                        auth.signOut();
+                        toast.success("Successfully Logout");
+                        navigate("/");
+                      }}>
+                      Log Out
+                    </Link>
+                  </li>
+                </ul>
               </li>
             </ul>
           </div>

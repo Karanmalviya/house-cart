@@ -103,7 +103,7 @@ export default function SignIn() {
                       <input
                         type="email"
                         className="form-control"
-                        defaultValue
+                        
                         placeholder="Email"
                         id="email"
                         value={email}
@@ -115,7 +115,7 @@ export default function SignIn() {
                         type={showPassword ? "text" : "password"}
                         className="form-control"
                         placeholder="Password"
-                        defaultValue
+                      
                         id="password"
                         value={password}
                         onChange={onChange}
@@ -146,7 +146,7 @@ export default function SignIn() {
                           type="submit"
                           className="btn w-100 btn-primary btn-md btn-block waves-effect text-center m-b-20"
                           name="submit"
-                          defaultValue="Signup Now"
+                          
                           value="Sign In"
                         />
                       </div>

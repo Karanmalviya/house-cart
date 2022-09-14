@@ -8,11 +8,10 @@ export default function useAuthState() {
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        setLoggedIn(true); 
+        setLoggedIn(true);
       }
       setCheckState(false);
     });
-  }, []);
-
-  return [loggedIn, checkState];
+  });
+  return { loggedIn, checkState };
 }

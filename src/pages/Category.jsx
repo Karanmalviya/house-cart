@@ -16,7 +16,7 @@ import {
 import Spinner from "../components/Spinner";
 import ListingItems from "../components/ListingItems";
 
-export default function Offers() {
+export default function Category() {
   const [listing, setListings] = useState("");
   const [loading, setLoading] = useState(true);
   const params = useParams();
@@ -30,7 +30,7 @@ export default function Offers() {
         //query
         const q = query(
           listingsRef,
-          where("offer", "==", true),
+          where("type", "==", params.categoryName),
           orderBy("timestamp", "desc"),
           limit(10)
         );
@@ -52,16 +52,16 @@ export default function Offers() {
     };
     //function call
     fetchListing();
-  }, []);
+  }, [params.categoryName]);
 
   return (
     <Layout>
       <div className="mt-3 container-fluid">
-        {/* <h1>
+        <h1>
           {params.categoryName === "rent"
             ? "Places For Rent"
             : "Places For Sale"}
-        </h1> */}
+        </h1>
         {loading ? (
           <Spinner />
         ) : listing && listing.length > 0 ? (
@@ -73,7 +73,7 @@ export default function Offers() {
             </div>
           </>
         ) : (
-          <p>There are no cuurent offers</p>
+          <p>No Listing For {params.categoryName}</p>
         )}
       </div>
     </Layout>
