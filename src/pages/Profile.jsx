@@ -52,7 +52,7 @@ export default function Profile() {
   //showButton
   return (
     <Layout>
-      <div className="container w-50 d-flex justify-content-between">
+      <div className="container w-50 d-flex justify-content-center">
         <h4>Profile Details</h4>
         {/* <button className="btn btn-danger" onClick={logoutHandler}>
           Logout
@@ -138,10 +138,12 @@ export default function Profile() {
                   </div>
                 </div>
               </form>
-              <Link to="/create-listing">
+              <div className="container mt-4 w-50 justify-content-between">
+                <Link to="/create-listing">
                 <FaArrowCircleRight color="primary"/>
                 Sell or Rent Your Home
               </Link>
+              </div>
             </div>
           </div>
         </div>

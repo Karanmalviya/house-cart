@@ -10,7 +10,7 @@ import {
 import { db } from "../firebase.config";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { toast } from "react-toastify";
-import "../css/SignUp.css";
+import "../index.css";
 import OAuth from "../components/OAuth";
 export default function SignUp() {
   const navigate = useNavigate();
@@ -54,80 +54,7 @@ export default function SignUp() {
   };
   return (
     <Layout>
-      {/* <div className="d-flex align-item-center justify-content-center w-100 mt-5">
-        <form className="w-25" onSubmit={onSubmitHandler}>
-          <h4 className=" p-2 mt-2 text-center mb-4 ">Sign Up</h4>
-          <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">
-              Name
-            </label>
-            <input
-              type="text"
-              value={name}
-              className="form-control"
-              id="name"
-              onChange={onChange}
-              aria-describedby="nameHelp"
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">
-              Email address
-            </label>
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              value={email}
-              onChange={onChange}
-              aria-describedby="emailHelp"
-            />
-          </div>
-
-          <div className="mb-3">
-            <label htmlFor="exampleInputPassword1" className="form-label">
-              Password
-            </label>
-            <input
-              type={showPassword ? "text" : "password"}
-              className="form-control"
-              id="password"
-              value={password}
-              onChange={onChange}
-            />
-            <span>
-              <p
-                style={{ cursor: "pointer" }}
-                onClick={() => {
-                  setShowPassword((prevState) => !prevState);
-                }}>
-                Show Password{" "}
-                {showPassword ? <BsFillEyeFill /> : <BsFillEyeSlashFill />}
-              </p>
-            </span>
-          </div>
-
-          <button type="submit" className="btn btn-primary">
-            SignUp
-          </button>
-          <div className="mt-3">
-            <div className="row">
-              <div className="col-md-12">
-                <a
-                  className="btn btn-lg btn-google btn-block text-uppercase btn-outline"
-                  href="#">
-                  <img src="https://img.icons8.com/color/16/000000/google-logo.png" />{" "}
-                  Signup Using Google
-                </a>
-              </div>
-            </div>
-
-            <span>Already User </span>
-            <Link to="/signin">Login</Link>
-          </div>
-        </form>
-      </div> */}
-
+  
       <section className="login-block">
         <div className="container-fluid">
           <div className="row">
@@ -147,7 +74,7 @@ export default function SignUp() {
                         type="text"
                         className="form-control"
                         defaultValue
-                        placeholder="Your Name"
+                        placeholder="Full Name"
                         onChange={onChange}
                         id="name"
                         value={name}

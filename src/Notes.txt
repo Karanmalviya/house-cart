@@ -1,5 +1,6 @@
 
 userid = 1udIqoXC46SPvNv07pvhQnY1Fym1
+geoCodeApiKey = AIzaSyBTBqsvDapmpMjrJDDp0F34jIpNcIeWwhk
 
 =========================================================================
 

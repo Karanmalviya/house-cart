@@ -49,14 +49,9 @@ export default function ForgotPassword() {
                         onChange={(e) => setEmail(e.target.value)}
                       />
                     </div>
-                    <div className="d-flex className SP_content justify-content-between">
-                      <div>
-                        <Link to="/signin">Sign In</Link>
-                      </div>
-                    </div>
 
                     <div className="row">
-                      <div className="col-md-12">
+                      <div className="col-md-12 mt-3">
                         <input
                           type="submit"
                           className="btn w-100 btn-primary btn-md btn-block waves-effect text-center m-b-20"
@@ -65,6 +60,11 @@ export default function ForgotPassword() {
                           defaultValue="Signup Now"
                           value="Reset"
                         />
+                      </div>
+                    </div>
+                    <div className="d-flex className SP_content justify-content-between">
+                      <div>
+                        <Link to="/signin">Remeber Your Password?</Link>
                       </div>
                     </div>
                   </div>

@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { toast } from "react-toastify";
 import OAuth from "../components/OAuth";
+import "../index.css";
 
 export default function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
@@ -38,52 +39,6 @@ export default function SignIn() {
   };
   return (
     <Layout>
-      {/* <div className="d-flex align-item-center justify-content-center w-100 mt-5">
-        <form className="w-25" onSubmit={loginHandler}>
-          <h4 className=" p-2 mt-2 text-center mb-4 ">Sign In</h4>
-          <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">
-              Email address
-            </label>
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              value={email}
-              onChange={onChange}
-              aria-describedby="emailHelp"
-            />
-          </div>
-
-          <div className="mb-3">
-            <label htmlFor="exampleInputPassword1" className="form-label">
-              Password
-            </label>
-            <input
-              type={showPassword ? "text" : "password"}
-              className="form-control"
-              id="password"
-              value={password}
-              onChange={onChange}
-            />
-            <span
-              style={{ cursor: "pointer" }}
-              onClick={() => {
-                setShowPassword((prevState) => !prevState);
-              }}>
-              Show Password{" "}
-              {showPassword ? <BsFillEyeFill /> : <BsFillEyeSlashFill />}
-            </span>
-          </div>
-
-          <button type="submit" className="btn btn-primary">
-            Login
-          </button>
-          <div className="mt-2">
-            <span>New User </span>
-            <Link to="/signup">Create Account</Link>
-          </div> */}
-
       <section className="login-block">
         <div className="container-fluid">
           <div className="row">
@@ -103,7 +58,6 @@ export default function SignIn() {
                       <input
                         type="email"
                         className="form-control"
-                        
                         placeholder="Email"
                         id="email"
                         value={email}
@@ -115,7 +69,6 @@ export default function SignIn() {
                         type={showPassword ? "text" : "password"}
                         className="form-control"
                         placeholder="Password"
-                      
                         id="password"
                         value={password}
                         onChange={onChange}
@@ -146,7 +99,6 @@ export default function SignIn() {
                           type="submit"
                           className="btn w-100 btn-primary btn-md btn-block waves-effect text-center m-b-20"
                           name="submit"
-                          
                           value="Sign In"
                         />
                       </div>
