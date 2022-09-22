@@ -138,11 +138,13 @@ export default function Profile() {
                   </div>
                 </div>
               </form>
-              <div className="container mt-4 w-50 justify-content-between">
-                <Link to="/create-listing">
-                <FaArrowCircleRight color="primary"/>
-                Sell or Rent Your Home
-              </Link>
+              <div className="d-flex col-md-12 mt-4 w-100 justify-content-center">
+                <div className="btn btn-md btn-google btn-block text-uppercase btn-outline">
+                  <Link to="/create-listing" className="saleRent">
+                    <FaArrowCircleRight color="primary" /> Sell or Rent Your
+                    Home
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

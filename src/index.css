@@ -52,6 +52,7 @@ body {
   -webkit-box-shadow: none;
   box-shadow: none;
   border-bottom: 1px solid #ccc;
+  
 }
 
 .btn-md {
@@ -82,7 +83,7 @@ body {
 }
 
 .btn-md {
-  padding: 10px 16px;
+  padding: 10px 126px;
   font-size: 15px;
   line-height: 23px;
 }
@@ -158,7 +159,7 @@ body {
 }
 /* ListingItem */
 
-.category-link a {
+.category-link a{
   text-decoration: none;
   color: black;
   line-height: normal;
@@ -178,4 +179,13 @@ body {
 .BgColor {
   background-color: #ffffff;
   box-shadow: #545454;
+}
+.saleRent {
+  text-decoration: none;
+  color: black;
+  line-height: normal;
+}
+.SRButton{
+   margin: 20px auto 0;
+  max-width: 460px !important;
 }

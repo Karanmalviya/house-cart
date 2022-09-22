@@ -14,6 +14,7 @@ import {
 } from "firebase/storage";
 import { db } from "../firebase.config";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import "../index.css"
 
 export default function CreateListing() {
   const [loading, setLoading] = useState(false);
@@ -182,13 +183,13 @@ export default function CreateListing() {
     const docRef = await addDoc(collection(db, "listings"), formDataCopy);
     setLoading(false);
     toast.success("Listing Created!");
-    navigate(`/categoryName/${formDataCopy.type}/${docRef.id}`);
+    navigate(`/category/${formDataCopy.type}/${docRef.id}`);
   };
   return (
     <Layout>
       <div className="container d-flex flex-column align-items-center justify-content-center mb-4">
         <h3 className="mt-3 w-50 bg-dark text-light p-2 text-center">
-          Sale Or Rent &nbsp;
+          Create Listing &nbsp;
           <AiOutlineFileAdd />
         </h3>
         {/* sell rent button */}
@@ -479,6 +480,8 @@ export default function CreateListing() {
           </div>
         </form>
       </div>
+
+     
     </Layout>
   );
 }
