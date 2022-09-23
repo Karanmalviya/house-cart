@@ -1,16 +1,21 @@
 import { getAuth } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { FcHome } from "react-icons/fc";
 
 export default function Header() {
-    const navigate = useNavigate();
-    const auth = getAuth();
+  const navigate = useNavigate();
+  const auth = getAuth();
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container">
           <Link className="navbar-brand" to="/">
-            House MarketPlace
+            <div className="d-flex">
+              <FcHome style={{ width: "3rem", height: "3rem" }} />
+              &nbsp;
+              <h2 className="mt-2">House MarketPlace</h2>
+            </div>
           </Link>
           <button
             className="navbar-toggler"
