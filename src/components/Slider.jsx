@@ -63,6 +63,7 @@ const ImgContainer = styled.div`
 const Image = styled.img`
   height: 40rem;
   width: 50rem;
+  margin-left:4rem;
 `;
 const InfoContainer = styled.div`
   flex: 1;

@@ -39,9 +39,9 @@ export default function Listing() {
             {listing.imgUrls === undefined ? (
               <Spinner />
             ) : (
-              <div>
-                {listing.imgUrls.map((url, index) => (
-                  <Slide>
+              <>
+                <Slide>
+                  {listing.imgUrls.map((url, index) => (
                     <img
                       src={listing.imgUrls[index]}
                       height={400}
@@ -49,17 +49,16 @@ export default function Listing() {
                       alt={listing.name}
                       key={index}
                     />
-                  </Slide>
-                ))}
-              </div>
+                  ))}
+                </Slide>
+              </>
             )}
           </div>
           <div className="card-body">
             <h3>{listing.name}</h3>
             <h6>
               Price : ₹
-              {listing.offer ? listing.discountedPrice : listing.regularPrice} 
-             
+              {listing.offer ? listing.discountedPrice : listing.regularPrice}
             </h6>
             <p>Property For : {listing.type === "rent" ? "Rent" : "Sale"}</p>
             <p>
