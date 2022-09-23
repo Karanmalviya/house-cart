@@ -178,7 +178,7 @@ export default function CreateListing() {
     };
     formData.location = address;
     delete formDataCopy.images;
-    delete formDataCopy.address;
+    // delete formDataCopy.address;
     !formDataCopy.offer && delete formDataCopy.discountedPrice;
     const docRef = await addDoc(collection(db, "listings"), formDataCopy);
     setLoading(false);

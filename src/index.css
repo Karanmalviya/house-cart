@@ -2,7 +2,13 @@
 
 body {
   background-color: #f2f7fb;
+  margin: 0;
 }
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
 
 .login-block {
   margin: 30px auto;
@@ -131,6 +137,7 @@ body {
   position: relative;
   width: 100%;
   max-width: 400px;
+  left: -3rem;
 }
 
 .Imagecontainer img {
@@ -188,4 +195,10 @@ body {
 .SRButton{
    margin: 20px auto 0;
   max-width: 460px !important;
+}
+
+/* Slider */
+
+.slider-s{
+position: relative;
 }
