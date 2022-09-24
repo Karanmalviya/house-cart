@@ -76,7 +76,7 @@ export default function Listing() {
             <p>
               {listing.bathrooms > 1
                 ? `${listing.bathrooms} bathrooms`
-                : "1 Bathroom"}
+                : "1 Kitchen"}
             </p>
             <p>{listing.parking ? `Parking spot` : "no spot for parking"}</p>
             <p>{listing.furnished ? `furnished house` : "not furnished"}</p>

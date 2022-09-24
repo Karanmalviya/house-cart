@@ -2,13 +2,13 @@ import React from "react";
 import { FaBath, FaBed } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "../index.css";
-
+import { TbToolsKitchen } from "react-icons/tb";
 // {FaBath}
 export default function ListingItems({ listing, id }) {
   return (
     <>
       <div className="d-flex align-content-center justify-content-center">
-        <div className="card category-link"  style={{ width: "800px" }}>
+        <div className="card category-link" style={{ width: "800px" }}>
           <Link to={`/category/${listing.type}/${id}`}>
             <div className="row container p-2">
               <div className="col-md-5">
@@ -33,10 +33,10 @@ export default function ListingItems({ listing, id }) {
                     : "1 Bedroom"}
                 </p>
                 <p>
-                  <FaBath />{" "}
+                  <TbToolsKitchen />{" "}
                   {listing.bathrooms > 1
-                    ? `${listing.bathrooms} Bathrooms`
-                    : "1 Bathrooms"}
+                    ? `${listing.bathrooms} Kitchen`
+                    : "1 Kitchen"}
                 </p>
               </div>
             </div>
