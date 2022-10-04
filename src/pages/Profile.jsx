@@ -6,11 +6,51 @@ import { toast } from "react-toastify";
 import { FaArrowCircleRight, FaEdit } from "react-icons/fa";
 import { db } from "../firebase.config";
 import { AiFillCheckCircle } from "react-icons/ai";
-import { doc, updateDoc, serverTimestamp } from "firebase/firestore";
+import {
+  doc,
+  updateDoc,
+  serverTimestamp,
+  collection,
+  getDocs,
+  query,
+  orderBy,
+  deleteDoc,
+  where,
+} from "firebase/firestore";
+import { useEffect } from "react";
+import ListingItem from "../components/ListingItems";
+import CreateListing from "./CreateListing";
 
 export default function Profile() {
-  const navigate = useNavigate();
   const auth = getAuth();
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+  const [listings, setListings] = useState(null);
+
+  //useeffect for getting data
+  useEffect(() => {
+    const fetchUserListings = async () => {
+      const listingRef = collection(db, "listings");
+      const q = query(
+        listingRef,
+        where("useRef", "==", auth.currentUser.uid),
+        orderBy("timestamp", "desc")
+      );
+      const querySnap = await getDocs(q);
+      console.log(querySnap);
+      let listings = [];
+      querySnap.forEach((doc) => {
+        return listings.push({
+          id: doc.id,
+          data: doc.data(),
+        });
+      });
+      console.log(listings);
+      setListings(listings);
+      setLoading(false);
+    };
+    fetchUserListings();
+  }, [auth.currentUser.uid]);
   const [changeDetails, setChangeDetails] = useState(false);
   const [formData, setFormData] = useState({
     name: auth.currentUser.displayName,
@@ -18,45 +58,61 @@ export default function Profile() {
   });
   const { name, email } = formData;
 
-  //logout handler
-  // const logoutHandler = () => {
-  //   auth.signOut();
-  //   toast.success("Successfully Logout");
-  //   navigate("/");
-  // };
-
-  //Submit Handler
-  const onSubmit = async () => {
-    try {
-      if (auth.currentUser.displayName !== name) {
-        await updateProfile(auth.currentUser, { displayName: name });
-
-        const userRef = doc(db, "users", auth.currentUser.uid);
-        await updateDoc(userRef, { name });
-        toast.success("user updated successfully");
-      }
-    } catch (error) {
-      console.log(error);
-      toast.error("Something went wrong");
-    }
+  const logoutHandler = () => {
+    auth.signOut();
+    toast.success("Successfully Logout");
+    navigate("/signin");
   };
 
-  // Onchange Handler
+  //onChange
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.id]: e.target.value,
     }));
   };
+  //submit handler
+  const onSubmit = async () => {
+    try {
+      if (auth.currentUser.displayName !== name) {
+        await updateProfile(auth.currentUser, {
+          displayName: name,
+        });
+        const userRef = doc(db, "users", auth.currentUser.uid);
+        await updateDoc(userRef, { name });
+        toast.success("User Updated!");
+      }
+    } catch (error) {
+      console.log(error);
+      toast("Something Went Wrong");
+    }
+  };
 
+  //delete handler
+  const onDelete = async (listingId) => {
+    if (window.confirm("Are You Sure  want to delete ?")) {
+      // await deleteDoc(doc, (db, "listings", listingId));
+      await deleteDoc(doc(db, "listings", listingId));
+      const updatedListings = listings.filter(
+        (listing) => listing.id !== listingId
+      );
+      setListings(updatedListings);
+      toast.success("Listing Deleted Successfully");
+    }
+  };
+
+  //edit handler
+  const onEdit = (listingId) => {
+    navigate(`/editlisting/${listingId}`);
+  };
   //showButton
   return (
     <Layout>
       <div className="container w-50 d-flex justify-content-center">
         <h4>Profile Details</h4>
-        {/* <button className="btn btn-danger" onClick={logoutHandler}>
+        <button className="btn btn-danger" onClick={logoutHandler}>
           Logout
-        </button> */}
+        </button>
       </div>
 
       {/* ==================================== */}
@@ -145,6 +201,24 @@ export default function Profile() {
                     Home
                   </Link>
                 </div>
+              </div>
+              <div className="container">
+                {listings && listings?.length > 0 && (
+                  <>
+                    <h6>Your Listings</h6>
+                    <div>
+                      {listings.map((listing) => (
+                        <ListingItem
+                          key={listing.id}
+                          listing={listing.data}
+                          id={listing.id}
+                          onDelete={() => onDelete(listing.id)}
+                          onEdit={() => onEdit(listing.id)}
+                        />
+                      ))}
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </div>

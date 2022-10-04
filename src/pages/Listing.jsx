@@ -7,6 +7,7 @@ import { useNavigate, Link, useParams } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
+import"../styles/Listing.css"
 
 export default function Listing() {
   const [listing, setListing] = useState("");

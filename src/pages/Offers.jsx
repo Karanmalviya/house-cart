@@ -15,10 +15,12 @@ import {
 } from "firebase/firestore";
 import Spinner from "../components/Spinner";
 import ListingItems from "../components/ListingItems";
-
+import "../styles/Offer.css"
 export default function Offers() {
   const [listing, setListings] = useState("");
   const [loading, setLoading] = useState(true);
+  const [lastFetchListing, setLastFetchListing] = useState(null);
+
   const params = useParams();
 
   //fetch listing
@@ -36,6 +38,8 @@ export default function Offers() {
         );
         //execute query
         const querySnap = await getDocs(q);
+        const lastVisble = querySnap.docs[querySnap.docs.length - 1];
+        setLastFetchListing(lastVisble);
         const listings = [];
         querySnap.forEach((doc) => {
           return listings.push({
@@ -54,9 +58,42 @@ export default function Offers() {
     fetchListing();
   }, []);
 
+  //Load More Pagination
+
+  const fetchLoadMoreListing = async () => {
+    try {
+      //reference
+      const listingsRef = collection(db, "listings");
+      //query
+      const q = query(
+        listingsRef,
+        where("type", "==", true),
+        orderBy("timestamp", "desc"),
+        startAfter(lastFetchListing),
+        limit(10)
+      );
+      //execute query
+      const querySnap = await getDocs(q);
+      const lastVisble = querySnap.docs[querySnap.docs.length - 1];
+      setLastFetchListing(lastVisble);
+      const listings = [];
+
+      querySnap.forEach((doc) => {
+        return listings.push({
+          id: doc.id,
+          data: doc.data(),
+        });
+      });
+      setListings((prevState) => [...prevState, ...listings]);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      toast.error("Unable to fetch data");
+    }
+  };
   return (
     <Layout>
-      <div className="mt-3 container-fluid">
+      <div className="offer pt-3 container-fluid">
         {/* <h1>
           {params.categoryName === "rent"
             ? "Places For Rent"
@@ -74,6 +111,13 @@ export default function Offers() {
           </>
         ) : (
           <p>There are no cuurent offers</p>
+        )}
+      </div>
+      <div className="d-flex justify-content-center align-item-center pb-4 mt-4">
+        {lastFetchListing && (
+          <button className="load-btn" onClick={fetchLoadMoreListing}>
+            load more
+          </button>
         )}
       </div>
     </Layout>
