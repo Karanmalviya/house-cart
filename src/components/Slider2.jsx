@@ -14,8 +14,11 @@ import {
   BsFillArrowRightCircleFill,
   BsFillArrowLeftCircleFill,
 } from "react-icons/bs";
-import { Fade } from "react-slideshow-image";
+import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 const Slider = () => {
   const [listings, setListings] = useState(null);
@@ -49,73 +52,28 @@ const Slider = () => {
   }
   return (
     <>
-      <div>
-        {" "}
-        {listings === null ? (
-          <Spinner />
-        ) : (
-          <div>
-              {listings.map(({ data, id }) => (
-            <div className="slide-container">
-                <Fade scale={0.4}>
-                  <img
-                    key={id}
-                    style={{ width: "100%", height: "43rem" }}
-                    src={data.imgUrls[0]}
-                    alt={data.name}
-                  />
-                </Fade>
-            </div>
-              ))}
-          </div>
-        )}
-      </div>
-      {/* <div>
-        {listings === null ? (
-          <Spinner />
-        ) : (
-          <div>
+      {listings === null ? (
+        <Spinner />
+      ) : (
+        <div>
+          <Swiper
+            spaceBetween={50}
+            slidesPerView={1}
+            onSlideChange={() => console.log("slide change")}
+            onSwiper={(swiper) => console.log(swiper)}>
             {listings.map(({ data, id }) => (
-              <SimpleImageSlider
-                width={896}
-                height={504}
-                // images={images}
-                showBullets={true}
-                showNavs={true}
-                src={data.imgUrls[0]}
-                alt={data.name}
-              />
-            ))}
-          </div>
-        )}
-      </div> */}
-
-      {/* <div className="container-fluid">
-        {listings === null ? (
-          <Spinner />
-        ) : (
-          <div>
-            {listings.map(({ data, id }) => (
-              <div
-                key={id}
-                onClick={() => {
-                  navigat(`/category/${data.type}/${id}`);
-                }}>
-                <h6 className="bg-info text-light p-2 m-0 ">
-                  <img alt="user pic" src={userPic} height={35} width={35} />
-                  <span className="ms-2"> {data.name}</span>
-                </h6>
+              <SwiperSlide>
                 <img
+                  key={id}
+                  style={{ width: "100%", height: "43rem" }}
                   src={data.imgUrls[0]}
-                  height={400}
-                  width={800}
                   alt={data.name}
                 />
-              </div>
+              </SwiperSlide>
             ))}
-          </div>
-        )}
-      </div> */}
+          </Swiper>
+        </div>
+      )}
     </>
   );
 };

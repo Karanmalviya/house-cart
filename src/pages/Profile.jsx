@@ -110,9 +110,9 @@ export default function Profile() {
     <Layout>
       <div className="container w-50 d-flex justify-content-center">
         <h4>Profile Details</h4>
-        <button className="btn btn-danger" onClick={logoutHandler}>
+        {/* <button className="btn btn-danger" onClick={logoutHandler}>
           Logout
-        </button>
+        </button> */}
       </div>
 
       {/* ==================================== */}
@@ -144,8 +144,11 @@ export default function Profile() {
                     </div>
                     <div className="form-group form-primary">
                       <input
+                        autoFocus
                         type="text"
-                        className="form-control"
+                        className={`form-control ${
+                          !changeDetails ? "text-black-50" : "text-dark"
+                        }`}
                         defaultValue
                         placeholder="Your Name"
                         id="name"
@@ -157,7 +160,9 @@ export default function Profile() {
                     <div className="form-group form-primary">
                       <input
                         type="email"
-                        className="form-control"
+                        className={`form-control ${
+                          !changeDetails ? "text-black-50" : "text-dark"
+                        }`}
                         defaultValue
                         placeholder="Email"
                         id="email"
@@ -202,7 +207,7 @@ export default function Profile() {
                   </Link>
                 </div>
               </div>
-              <div className="container">
+              {/* <div className="container">
                 {listings && listings?.length > 0 && (
                   <>
                     <h6>Your Listings</h6>
@@ -219,7 +224,7 @@ export default function Profile() {
                     </div>
                   </>
                 )}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

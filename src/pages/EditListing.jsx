@@ -42,6 +42,9 @@ export default function EditListing() {
     images: {},
     latitude: 0,
     longitude: 0,
+    sqft: 0,
+    kitchen: 0,
+    hall: 0,
   });
 
   const {
@@ -58,6 +61,9 @@ export default function EditListing() {
     images,
     latitude,
     longitude,
+    sqft,
+    kitchen,
+    hall,
   } = formData;
 
   const auth = getAuth();

@@ -15,7 +15,9 @@ import {
 } from "firebase/firestore";
 import Spinner from "../components/Spinner";
 import ListingItems from "../components/ListingItems";
-import "../styles/Offer.css"
+import "../styles/Offer.css";
+import EmptyBox from "../components/EmptyBox";
+
 export default function Offers() {
   const [listing, setListings] = useState("");
   const [loading, setLoading] = useState(true);
@@ -93,7 +95,7 @@ export default function Offers() {
   };
   return (
     <Layout>
-      <div className="offer pt-3 container-fluid">
+      <div>
         {/* <h1>
           {params.categoryName === "rent"
             ? "Places For Rent"
@@ -103,14 +105,14 @@ export default function Offers() {
           <Spinner />
         ) : listing && listing.length > 0 ? (
           <>
-            <div>
+            <div className="offer pt-3 container-fluid">
               {listing.map((list) => (
                 <ListingItems listing={list.data} id={list.id} key={list.id} />
               ))}
             </div>
           </>
         ) : (
-          <p>There are no cuurent offers</p>
+          <EmptyBox />
         )}
       </div>
       <div className="d-flex justify-content-center align-item-center pb-4 mt-4">

@@ -36,11 +36,11 @@ export default function NavBar() {
             <li className="nav-item">
               <NavLink
                 exact
-                to="/about"
+                to="/explore"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}>
-                About
+                Explore
               </NavLink>
             </li>
             <li className="nav-item">

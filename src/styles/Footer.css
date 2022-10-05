@@ -1,0 +1,14 @@
+.footer-bg {
+  background-color: #1f5156 !important;
+  color: white !important;
+}
+.footer-logo {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+.footer-logo-content {
+ display: inline-flex; 
+}
+.logo-text{
+    margin-top:.5rem;
+}

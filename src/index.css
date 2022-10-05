@@ -1,10 +1,11 @@
 /* SignUp /sign in  */
 
 body {
-  background-color: #f2f7fb;
+  /* background-color: #f2f7fb; */
   margin: 0;
-}
 
+  background-color: #b5fac7;
+}
 body::-webkit-scrollbar {
   display: none;
 }
@@ -236,7 +237,20 @@ body::-webkit-scrollbar {
 .btn-space {
   display: flex;
 }
-.post-btn{
+.post-btn {
   margin-left: 90%;
   padding-top: 2rem;
+}
+
+/* Empty-Box */
+.empty-box {
+}
+.empty-box-text {
+  font-size: 18px;
+  margin-left: 2rem;
+}
+.emtpy-box-logo {
+  width: 15rem;
+  height: 10rem;
+  margin-top: 10rem;
 }

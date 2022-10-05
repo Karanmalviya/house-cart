@@ -17,6 +17,7 @@ import EditListing from "./pages/EditListing";
 // import HomePagePrivateRoute from "./components/HomePagePrivateRoute";
 import ContactUs from "./pages/ContactUs";
 import Ads from "./pages/Ads";
+import Explore from "./pages/Explore";
 
 export default function App() {
   return (
@@ -27,11 +28,17 @@ export default function App() {
         <Route path="/" element={<PrivateRoute />}>
           <Route path="/" element={<HomePages />} />
         </Route>
-        <Route path="/" element={<HomePages />} />
+        <Route path="/offers" element={<PrivateRoute />}>
+          <Route path="/offers" element={<Offers />} />
+        </Route>
+        <Route path="/explore" element={<PrivateRoute />}>
+          <Route path="/explore" element={<Explore />} />
+        </Route>
+        {/* <Route path="/" element={<HomePages />} /> */}
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/category/:categoryName" element={<Category />} />
         <Route path="/editlisting/:listingId" element={<EditListing />} />
-        <Route path="/offers" element={<Offers />} />
+        {/* <Route path="/offers" element={<Offers />} /> */}
         <Route path="/ads" element={<Ads />} />
 
         <Route path="/signin" element={<SignIn />} />

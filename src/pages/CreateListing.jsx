@@ -14,7 +14,7 @@ import {
 } from "firebase/storage";
 import { db } from "../firebase.config";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
-import "../index.css"
+import "../index.css";
 
 export default function CreateListing() {
   const [loading, setLoading] = useState(false);
@@ -480,8 +480,6 @@ export default function CreateListing() {
           </div>
         </form>
       </div>
-
-     
     </Layout>
   );
 }
