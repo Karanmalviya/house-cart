@@ -1,5 +1,5 @@
 import React from "react";
-import { FaBath, FaBed } from "react-icons/fa";
+import { FaBed } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { TbToolsKitchen, TbGeometry } from "react-icons/tb";
 import "../styles/ListingItem.css";

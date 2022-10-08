@@ -10,7 +10,7 @@ import {
 import { GiSpookyHouse } from "react-icons/gi";
 import { AiFillMail, AiOutlineMail } from "react-icons/ai";
 import { ImLocation } from "react-icons/im";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "../../styles/Footer.css";
 
 export default function Footer() {
@@ -76,18 +76,24 @@ export default function Footer() {
                   </a>
                 </p>
                 <p>
-                  <a href="#!" className="text-reset">
+                  <a
+                    href="https://github.com/Karanmalviya/Rythm-The-Music-Player.git"
+                    className="text-reset">
                     Rythm Music
                   </a>
                 </p>
                 <p>
-                  <a href="#!" className="text-reset">
+                  <a
+                    href="https://github.com/Karanmalviya/Covid_Traker_Application.git"
+                    className="text-reset">
                     Coronavirus Tracker
                   </a>
                 </p>
                 <p>
-                  <a href="#!" className="text-reset">
-                    Vue
+                  <a
+                    href="https://github.com/Karanmalviya/Memes-extension.git"
+                    className="text-reset">
+                    Meme Extension
                   </a>
                 </p>
               </div>
@@ -95,41 +101,41 @@ export default function Footer() {
               <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                 <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
                 <p>
-                  <a href="#!" className="text-reset">
+                  <NavLink to="/" className="text-reset">
                     Home
-                  </a>
+                  </NavLink>
                 </p>
                 <p>
-                  <a href="#!" className="text-reset">
-                    About
-                  </a>
+                  <NavLink to="/explore" className="text-reset">
+                    Explore
+                  </NavLink>
                 </p>
                 <p>
-                  <a href="#!" className="text-reset">
+                  <NavLink to="/offers" className="text-reset">
                     Offers
-                  </a>
+                  </NavLink>
                 </p>
                 <p>
-                  <a href="#!" className="text-reset">
+                  <NavLink to="/contactus" className="text-reset">
                     Help
-                  </a>
+                  </NavLink>
                 </p>
               </div>
 
               <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                 <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
                 <p>
-                  <i className="fas fa-home me-3" /> Madhya Pradesh, IN
+                  <ImLocation className="me-3" /> Madhya Pradesh, IN
                 </p>
                 <p>
-                  <i className="fas fa-envelope me-3" />
-                  info@example.com
+                  <AiFillMail className="me-3" />
+                  buckshouse@info.com
                 </p>
                 <p>
-                  <i className="fas fa-phone me-3" /> +91 012 5678 912
+                  <BsFillTelephoneFill className="me-3" /> +91 012 5678 912
                 </p>
                 <p>
-                  <i className="fas fa-print me-3" /> + 01 234 567 89
+                  <BsFillTelephoneFill className="me-3" /> + 01 234 567 89
                 </p>
               </div>
             </div>

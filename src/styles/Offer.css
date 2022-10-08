@@ -16,7 +16,7 @@
 }
 
 .load-btn {
-  background-color: #470d21 !important;
+  background-color: #1f5156 !important;
   font-size: 1rem;
   font-family: cursive;
   padding: 5px 15px;
@@ -26,12 +26,11 @@
   border-radius: 5px;
 }
 .load-btn:hover {
-  color: #470d21 !important;
+  color: #1f5156 !important;
   font-size: 1rem;
   font-family: cursive;
   padding: 5px 15px;
   background-color: white !important;
-
   border-radius: none;
 }
 

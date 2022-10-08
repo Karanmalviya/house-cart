@@ -153,6 +153,7 @@ body::-webkit-scrollbar {
 
 .Imagecontainer img {
   width: 100%;
+  max-width: 600px;
   height: auto;
 }
 
@@ -233,6 +234,7 @@ body::-webkit-scrollbar {
 /* Button */
 .btn-de {
   border-radius: 2rem;
+  text-decoration: none;
 }
 .btn-space {
   display: flex;
@@ -241,9 +243,14 @@ body::-webkit-scrollbar {
   margin-left: 90%;
   padding-top: 2rem;
 }
+.link-logo{
+  text-decoration: none;
+  color: black;
+}
 
 /* Empty-Box */
 .empty-box {
+  user-select: none;
 }
 .empty-box-text {
   font-size: 18px;

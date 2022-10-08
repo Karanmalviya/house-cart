@@ -1,4 +1,4 @@
-.loader,
+/* .loader,
 .loader:before,
 .loader:after {
   background: #1f5156;
@@ -56,4 +56,9 @@
     box-shadow: 0 -2em;
     height: 5em;
   }
+} */
+
+
+.spinner {
+  display: flex;
 }

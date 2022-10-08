@@ -2,19 +2,29 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout/Layout";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../firebase.config";
-import { getAuth } from "firebase/auth";
-import { useNavigate, Link, useParams } from "react-router-dom";
+// import { getAuth } from "firebase/auth";
+import { Link, useParams } from "react-router-dom";
 import Spinner from "../components/Spinner";
-import { Slide } from "react-slideshow-image";
-import "react-slideshow-image/dist/styles.css";
-import"../styles/Listing.css"
+import "../styles/Listing.css";
+
+// import Swiper core and required modules
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import SwiperCore, { Autoplay } from "swiper/core";
+import "swiper/css";
+import "swiper/css/autoplay";
+import "swiper/less";
+import "swiper/less/navigation";
+import "swiper/less/pagination";
+import "swiper/css/scrollbar";
 
 export default function Listing() {
+  SwiperCore.use([Autoplay, Pagination, Navigation]);
   const [listing, setListing] = useState("");
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const params = useParams();
-  const auth = getAuth();
+  // const auth = getAuth();
 
   useEffect(() => {
     const fetchListing = async () => {
@@ -41,17 +51,31 @@ export default function Listing() {
               <Spinner />
             ) : (
               <>
-                <Slide>
+                <Swiper
+                  modules={[Navigation, Pagination, Scrollbar, A11y]}
+                  spaceBetween={50}
+                  slidesPerView={1}
+                  pagination={{ clickable: true }}
+                  scrollbar={{ draggable: true }}
+                  centeredSlides={true}
+                  autoplay={{
+                    delay: 5000,
+                    disableOnInteraction: false,
+                  }}
+                  navigation={true}
+                  className="mySwiper">
                   {listing.imgUrls.map((url, index) => (
-                    <img
-                      src={listing.imgUrls[index]}
-                      height={400}
-                      width={800}
-                      alt={listing.name}
-                      key={index}
-                    />
+                    <SwiperSlide>
+                      <img
+                        src={listing.imgUrls[index]}
+                        height={400}
+                        width={800}
+                        alt={listing.name}
+                        key={index}
+                      />
+                    </SwiperSlide>
                   ))}
-                </Slide>
+                </Swiper>
               </>
             )}
           </div>

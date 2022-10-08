@@ -1,31 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../firebase.config";
-import {
-  collection,
-  getDoc,
-  query,
-  orderBy,
-  limit,
-  getDocs,
-} from "firebase/firestore";
+import { collection, query, orderBy, limit, getDocs } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import Spinner from "./Spinner";
-import {
-  BsFillArrowRightCircleFill,
-  BsFillArrowLeftCircleFill,
-} from "react-icons/bs";
-import { Slide } from "react-slideshow-image";
-import "react-slideshow-image/dist/styles.css";
-
+// import Swiper core and required modules
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import SwiperCore, { Autoplay } from "swiper/core";
 import "swiper/css";
+import "swiper/css/autoplay";
+import "swiper/less";
+import "swiper/less/navigation";
+import "swiper/less/pagination";
+import "swiper/css/scrollbar";
+import "../styles/Slider.css";
 
 const Slider = () => {
+  SwiperCore.use([Autoplay, Pagination, Navigation]);
   const [listings, setListings] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-  const userPic =
-    "https://openclipart.org/download/247319/abstract-user-flat-3.svg";
 
   useEffect(() => {
     const fetchListings = async () => {
@@ -57,18 +51,31 @@ const Slider = () => {
       ) : (
         <div>
           <Swiper
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
             spaceBetween={50}
             slidesPerView={1}
-            onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}>
+            pagination={{ clickable: true }}
+            scrollbar={{ draggable: true }}
+            centeredSlides={true}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            navigation={true}
+            className="mySwiper">
             {listings.map(({ data, id }) => (
               <SwiperSlide>
-                <img
-                  key={id}
-                  style={{ width: "100%", height: "43rem" }}
-                  src={data.imgUrls[0]}
-                  alt={data.name}
-                />
+                <div className="img-container">
+                  <h2 className="img-text">{data.name}</h2>
+                  <img
+                    className="slider "
+                    key={id}
+                    // style={{ width: "100%", height: "50%" }}
+                    src={data.imgUrls[0]}
+                    alt={data.name}
+                  />
+                  <p className="img-text">{data.address}</p>
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>

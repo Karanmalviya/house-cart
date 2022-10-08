@@ -9,21 +9,19 @@ import { AiFillCheckCircle } from "react-icons/ai";
 import {
   doc,
   updateDoc,
-  serverTimestamp,
+  // serverTimestamp,
   collection,
   getDocs,
   query,
   orderBy,
-  deleteDoc,
+  // deleteDoc,
   where,
 } from "firebase/firestore";
 import { useEffect } from "react";
-import ListingItem from "../components/ListingItems";
-import CreateListing from "./CreateListing";
 
 export default function Profile() {
   const auth = getAuth();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [listings, setListings] = useState(null);
 
@@ -58,11 +56,11 @@ export default function Profile() {
   });
   const { name, email } = formData;
 
-  const logoutHandler = () => {
-    auth.signOut();
-    toast.success("Successfully Logout");
-    navigate("/signin");
-  };
+  // const logoutHandler = () => {
+  //   auth.signOut();
+  //   toast.success("Successfully Logout");
+  //   navigate("/signin");
+  // };
 
   //onChange
   const onChange = (e) => {
@@ -89,22 +87,22 @@ export default function Profile() {
   };
 
   //delete handler
-  const onDelete = async (listingId) => {
-    if (window.confirm("Are You Sure  want to delete ?")) {
-      // await deleteDoc(doc, (db, "listings", listingId));
-      await deleteDoc(doc(db, "listings", listingId));
-      const updatedListings = listings.filter(
-        (listing) => listing.id !== listingId
-      );
-      setListings(updatedListings);
-      toast.success("Listing Deleted Successfully");
-    }
-  };
+  // const onDelete = async (listingId) => {
+  //   if (window.confirm("Are You Sure  want to delete ?")) {
+  //     // await deleteDoc(doc, (db, "listings", listingId));
+  //     await deleteDoc(doc(db, "listings", listingId));
+  //     const updatedListings = listings.filter(
+  //       (listing) => listing.id !== listingId
+  //     );
+  //     setListings(updatedListings);
+  //     toast.success("Listing Deleted Successfully");
+  //   }
+  // };
 
   //edit handler
-  const onEdit = (listingId) => {
-    navigate(`/editlisting/${listingId}`);
-  };
+  // const onEdit = (listingId) => {
+  //   navigate(`/editlisting/${listingId}`);
+  // };
   //showButton
   return (
     <Layout>
@@ -207,24 +205,6 @@ export default function Profile() {
                   </Link>
                 </div>
               </div>
-              {/* <div className="container">
-                {listings && listings?.length > 0 && (
-                  <>
-                    <h6>Your Listings</h6>
-                    <div>
-                      {listings.map((listing) => (
-                        <ListingItem
-                          key={listing.id}
-                          listing={listing.data}
-                          id={listing.id}
-                          onDelete={() => onDelete(listing.id)}
-                          onEdit={() => onEdit(listing.id)}
-                        />
-                      ))}
-                    </div>
-                  </>
-                )}
-              </div> */}
             </div>
           </div>
         </div>
