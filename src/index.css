@@ -3,7 +3,7 @@
 body {
   /* background-color: #f2f7fb; */
   margin: 0;
-
+  padding: 0;
   background-color: #b5fac7;
 }
 body::-webkit-scrollbar {
@@ -243,7 +243,7 @@ body::-webkit-scrollbar {
   margin-left: 90%;
   padding-top: 2rem;
 }
-.link-logo{
+.link-logo {
   text-decoration: none;
   color: black;
 }

@@ -95,7 +95,7 @@ export default function Offers() {
   };
   return (
     <Layout>
-      <div>
+      <div className="content">
         {/* <h1>
           {params.categoryName === "rent"
             ? "Places For Rent"

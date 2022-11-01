@@ -21,6 +21,7 @@ import ListingItem from "../components/ListingItems";
 import EmptyBox from "../components/EmptyBox";
 import Spinner from "../components/Spinner";
 import { AiOutlinePlus } from "react-icons/ai";
+
 export default function Ads() {
   const navigate = useNavigate();
   const [listings, setListings] = useState("");

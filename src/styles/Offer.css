@@ -3,7 +3,9 @@
   /* background: url("../../public/assets/offer-bg.jpg") no-repeat; */
   background-size: 100% 100%;
 }
-
+.content{
+  margin-top: 6rem;
+}
 .offers h1 {
   font-family: cursive;
   text-align: center;
@@ -28,7 +30,8 @@
 .load-btn:hover {
   color: #1f5156 !important;
   font-size: 1rem;
-  font-family: cursive;
+  
+  
   padding: 5px 15px;
   background-color: white !important;
   border-radius: none;

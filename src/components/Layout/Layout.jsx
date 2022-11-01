@@ -1,12 +1,12 @@
 import Footer from "./Footer";
 import NavBar from "./Navbar";
-
-export default function Layout({ children }) {
+export default function Layout({ children, home }) {
+  // console.log(children);
   return (
     <>
-      <NavBar />
+      {home ? <NavBar home={home} /> : <NavBar home={false} />}
       <main style={{ minHeight: "75vh" }}>{children}</main>
-      <Footer />
+      {home ? <div></div> : <Footer />}
     </>
   );
 }

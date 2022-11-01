@@ -2,13 +2,14 @@ import React from 'react'
 import Layout from "../components/Layout/Layout";
 import "../index.css";
 import { useNavigate } from "react-router-dom";
-import Slider from "../components/Slider2";
 import "../styles/HomePage.css";
+import "../styles/Explore.css";
+
 export default function Explore() {
      const navigate = useNavigate();
   return (
     <Layout>
-      <div className="container mt-3 ">
+      <div className="container mt-25 ">
         {/* <h1 className="d-flex justify-content-center">Category</h1> */}
         <div className="row d-flex justify-content-between">
           <div className="col-md-5">

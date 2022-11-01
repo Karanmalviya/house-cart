@@ -1,15 +1,30 @@
+/* .nav-sec {
+  position: absolute;
+} */
 .navbar {
-  background-color: #1f5156;
-  height: 80px;
+  height: 70px;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
-  position: sticky;
+  /* position: sticky; */
+  position: fixed;
   top: 0;
   z-index: 20;
 }
-
+.navbar {
+  /* padding-top: 20px;
+  padding-bottom: 20px; */
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.nav-prefix {
+  background-color: #1f5156 !important;
+}
+.nav-affix {
+  background-color: transparent;
+}
 .nav-container {
   display: flex;
   justify-content: center;
@@ -39,6 +54,7 @@
 
 .nav-links {
   color: #fff;
+  font-size:17px;
   text-decoration: none;
   padding: 0.5rem 1rem;
   height: 100%;

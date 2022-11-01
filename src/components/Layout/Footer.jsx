@@ -57,10 +57,10 @@ export default function Footer() {
           <div className="container text-center text-md-start mt-5">
             <div className="row mt-3">
               <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                <h6 className="text-uppercase fw-bold mb-2 footer-logo-content">
+                <h2 className="text-uppercase fw-bold mb-2 footer-logo-content">
                   <GiSpookyHouse className="footer-logo" />
-                  <h2 className="logo-text">Bucks</h2>
-                </h6>
+                  <p className="logo-text">Bucks</p>
+                </h2>
                 <p>
                   Here you can use rows and columns to organize your footer
                   content. Lorem ipsum dolor sit amet, consectetur adipisicing
