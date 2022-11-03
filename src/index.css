@@ -261,3 +261,7 @@ body::-webkit-scrollbar {
   height: 10rem;
   margin-top: 10rem;
 }
+/* Signin */
+.content{
+  margin-top: 15px;
+}

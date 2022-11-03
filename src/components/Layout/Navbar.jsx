@@ -13,7 +13,7 @@ export default function NavBar({ home }) {
   const [click, setClick] = useState(false);
   const [nav, setNav] = useState(home);
   const handleClick = () => setClick(!click);
- 
+
   return (
     <>
       <nav className={nav ? "nav-affix navbar" : "nav-prefix navbar"}>
@@ -86,6 +86,7 @@ export default function NavBar({ home }) {
                       auth.signOut();
                       toast.success("Successfully Logout");
                       navigate("/signin");
+                      window.location.reload();
                     }}>
                     Logout
                   </Link>

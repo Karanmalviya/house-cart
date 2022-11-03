@@ -39,7 +39,7 @@ export default function SignIn() {
   };
   return (
     <Layout>
-      <section className="login-block">
+      <section className="login-block content">
         <div className="container-fluid">
           <div className="row">
             <div className="col-sm-12">
