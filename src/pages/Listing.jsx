@@ -44,9 +44,11 @@ export default function Listing() {
   }
   return (
     <Layout>
-      <div className="container d-flex align-items-center justify-content-center mt-4">
-        <div className="card" style={{ width: "600px" }}>
-          <div className="card-header">
+      <div
+        className='container d-flex align-items-center justify-content-center'
+        style={{ marginTop: "6rem" }}>
+        <div className='card' style={{ width: "600px" }}>
+          <div className='card-header'>
             {listing.imgUrls === undefined ? (
               <Spinner />
             ) : (
@@ -63,7 +65,7 @@ export default function Listing() {
                     disableOnInteraction: false,
                   }}
                   navigation={true}
-                  className="mySwiper">
+                  className='mySwiper'>
                   {listing.imgUrls.map((url, index) => (
                     <SwiperSlide>
                       <img
@@ -79,7 +81,7 @@ export default function Listing() {
               </>
             )}
           </div>
-          <div className="card-body">
+          <div className='card-body'>
             <h3>{listing.name}</h3>
             <h6>
               Price : ₹
@@ -106,7 +108,7 @@ export default function Listing() {
             <p>{listing.parking ? `Parking spot` : "no spot for parking"}</p>
             <p>{listing.furnished ? `furnished house` : "not furnished"}</p>
             <Link
-              className="btn btn-success"
+              className='btn btn-success'
               to={`/contact/${listing.useRef}?listingName=${listing.name}`}>
               Contact Landlord
             </Link>

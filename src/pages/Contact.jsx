@@ -25,7 +25,7 @@ export default function Contact() {
   }, [params.landlordId]);
   return (
     <Layout>
-      <div className=" container  mt-4">
+      <div className=" container">
         <h3>Contact Details</h3>
         <div>
           {landlord !== "" && (
