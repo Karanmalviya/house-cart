@@ -25,33 +25,36 @@ export default function App() {
       <ToastContainer />
 
       <Routes>
-        <Route path="/" element={<PrivateRoute />}>
-          <Route path="/" element={<HomePages />} />
+        <Route path='/' element={<PrivateRoute />}>
+          <Route path='/' element={<HomePages />} />
         </Route>
-        <Route path="/offers" element={<PrivateRoute />}>
-          <Route path="/offers" element={<Offers />} />
+        <Route path='/home' element={<PrivateRoute />}>
+          <Route path='/home' element={<HomePages />} />
         </Route>
-        <Route path="/explore" element={<PrivateRoute />}>
-          <Route path="/explore" element={<Explore />} />
+        <Route path='/offers' element={<PrivateRoute />}>
+          <Route path='/offers' element={<Offers />} />
+        </Route>
+        <Route path='/explore' element={<PrivateRoute />}>
+          <Route path='/explore' element={<Explore />} />
         </Route>
         {/* <Route path="/" element={<HomePages />} /> */}
-        <Route path="/contactus" element={<ContactUs />} />
-        <Route path="/category/:categoryName" element={<Category />} />
-        <Route path="/editlisting/:listingId" element={<EditListing />} />
+        <Route path='/contactus' element={<ContactUs />} />
+        <Route path='/category/:categoryName' element={<Category />} />
+        <Route path='/editlisting/:listingId' element={<EditListing />} />
         {/* <Route path="/offers" element={<Offers />} /> */}
-        <Route path="/ads" element={<Ads />} />
+        <Route path='/ads' element={<Ads />} />
 
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/profile" element={<PrivateRoute />}>
-          <Route path="/profile" element={<Profile />} />
+        <Route path='/signin' element={<SignIn />} />
+        <Route path='/profile' element={<PrivateRoute />}>
+          <Route path='/profile' element={<Profile />} />
         </Route>
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/forgetpassword" element={<ForgotPassword />} />
-        <Route path="/create-listing" element={<CreateListing />} />
+        <Route path='/signup' element={<SignUp />} />
+        <Route path='/forgetpassword' element={<ForgotPassword />} />
+        <Route path='/create-listing' element={<CreateListing />} />
         <Route
-          path="/category/:categoryName/:listingId"
+          path='/category/:categoryName/:listingId'
           element={<Listing />}></Route>
-        <Route path="/contact/:landlordId" element={<Contact />}></Route>
+        <Route path='/contact/:landlordId' element={<Contact />}></Route>
       </Routes>
     </BrowserRouter>
   );

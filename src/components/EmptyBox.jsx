@@ -4,7 +4,7 @@ import "../../src/index.css";
 
 export default function EmptyBox() {
   return (
-    <div className="d-flex justify-content-center">
+    <div className="d-flex justify-content-center mt-5">
       <div className="empty-box">
         <img
           src={Box}

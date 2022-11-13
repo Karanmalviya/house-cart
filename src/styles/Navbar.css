@@ -44,6 +44,9 @@
   flex-grow: 1;
   display: flex;
 }
+.nav-logo:hover {
+  color: #f5b921;
+}
 
 .nav-menu {
   display: flex;
@@ -59,6 +62,9 @@
   padding: 0.5rem 1rem;
   height: 100%;
   border-bottom: 3px solid transparent;
+}
+.nav-links:hover {
+  color: #fff;
 }
 .fa-code {
   height: 4rem;
@@ -97,7 +103,13 @@
 .nav-icon {
   display: none;
 }
-
+.dropdown-item:hover {
+  background: #fff;
+  color: black;
+}
+.dropdown-item {
+  color: #fff;
+}
 @media screen and (max-width: 960px) {
   .nav-menu {
     display: flex;
@@ -137,5 +149,9 @@
     font-size: 1.8rem;
     cursor: pointer;
     color: #ffdd40;
+  }
+  .dropdown-menu {
+    background-color: #fff;
+    width: 100px;
   }
 }
